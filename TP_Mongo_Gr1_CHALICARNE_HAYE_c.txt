@@ -182,6 +182,10 @@ Réponse:
 
 ************************************************************************
 4.	Nombre de stations dont la seconde adresse a une valeur
+db.velov_geo.find({"properties.address2":{"$ne" : ""}}).count();
+
+Réponse:
+163
 
 ************************************************************************
 5.	Lister les stations avec plus de 2 vélos disponibles (available_bikes)
@@ -253,9 +257,47 @@ Réponse :
 
 ************************************************************************
 6.	Lister toutes les communes distinctes
+db.velov_geo.distinct("properties.commune");
+
+Réponse: 
+
+[
+    "CALUIRE-ET-CUIRE",
+    "Lyon 1 er",
+    "Lyon 2 ème",
+    "Lyon 3 ème",
+    "Lyon 4 ème",
+    "Lyon 5 ème",
+    "Lyon 6 ème",
+    "Lyon 7 ème",
+    "Lyon 8 ème",
+    "Lyon 9 ème",
+    "VAULX-EN-VELIN",
+    "VENISSIEUX",
+    "VILLEURBANNE"
+]
 
 ************************************************************************
 7.	Lister toutes les communes distinctes, trier les résultats par ordre alphabétique
+db.velov_geo.distinct("properties.commune").sort();
+
+Réponse: 
+// La réponse est la même car l'Array est trié par ordre alphabétique par défaut.
+[
+    "CALUIRE-ET-CUIRE",
+    "Lyon 1 er",
+    "Lyon 2 ème",
+    "Lyon 3 ème",
+    "Lyon 4 ème",
+    "Lyon 5 ème",
+    "Lyon 6 ème",
+    "Lyon 7 ème",
+    "Lyon 8 ème",
+    "Lyon 9 ème",
+    "VAULX-EN-VELIN",
+    "VENISSIEUX",
+    "VILLEURBANNE"
+]
 
 ************************************************************************
 8.	Lister les stations du 9ème arrondissement (Lyon 9 ème) par ordre croissant de vélos disponibles
