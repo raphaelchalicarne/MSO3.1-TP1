@@ -587,6 +587,70 @@ Réponse:
 
 ************************************************************************
 18.	Cherchez les stations dont le pole répond à la requête « quartiers »
+db.velov_geo.find( { $text: { $search: "quartiers" } } );
 
+Réponse:
 
+/*1*/
+{ 
+    "_id" : ObjectId("6006a729431538020287cbdb"), 
+    "type" : "Feature", 
+    "properties" : { 
+        "number" : 3018, 
+        "name" : "Voltaire / Créqui", 
+        "address" : "rue de Créqui", 
+        "address2" : "angle place Voltaire", 
+        "commune" : "Lyon 3 ème", 
+        "nmarrond" : 18, 
+        "bonus" : "Non", 
+        "pole" : "Coeur de quartier", 
+        "lat" : 45.7566992681841, 
+        "lng" : 4.84840533316879, 
+        "bike_stands" : 30, 
+        "status" : "OPEN", 
+        "available_bike_stands" : 21, 
+        "available_bikes" : 9, 
+        "availabilitycode" : 1, 
+        "availability" : "Vert", 
+        "banking" : 0, 
+        "gid" : 780, 
+        "last_update" : "2017/02/02 14:51:08", 
+        "last_update_fme" : "2017/02/02 14:54:00" 
+    }, 
+    "geometry" : { 
+        "type" : "Point", 
+        "coordinates" : [ 4.848405333168788, 45.75669926818415 ] 
+    }
+}
 
+/*2*/
+{ 
+    "_id" : ObjectId("6006a729431538020287cbc5"), 
+    "type" : "Feature", 
+    "properties" : { 
+        "number" : 3013, 
+        "name" : "Place Ronde", 
+        "address" : "Place Antoinette", 
+        "address2" : "Angle rue Antoinette et cours Richard", 
+        "commune" : "Lyon 3 ème", 
+        "nmarrond" : 13, "bonus" : "Non", 
+        "pole" : "coeur de quartier", 
+        "lat" : 45.7536448445955, 
+        "lng" : 4.88926855741309, 
+        "bike_stands" : 21, 
+        "status" : "OPEN", 
+        "available_bike_stands" : 16, 
+        "available_bikes" : 5, 
+        "availabilitycode" : 1, 
+        "availability" : "Vert", 
+        "banking" : 0, 
+        "gid" : 1002, 
+        "last_update" : "2017/02/02 14:50:15", 
+        "last_update_fme" : "2017/02/02 14:54:00"
+    }, 
+    "geometry" : { 
+        "type" : "Point", 
+        "coordinates" : [ 4.889268557413093, 45.75364484459555 ]
+    }
+}
+...
