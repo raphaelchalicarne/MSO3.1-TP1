@@ -504,6 +504,83 @@ Réponse:
 
 ************************************************************************
 16.	Chercher les stations Vélo’V qui sont à moins de 500m du point : $geometry: { type: "Point",  coordinates: [ 4.863132722360224, 45.77022676914935 ] } (utilisez : $near)
+db.velov_geo.find(
+   {
+     "geometry.coordinates":
+       { $near :
+          {
+            $geometry: { type: "Point",  coordinates: [ 4.863132722360224,45.77022676914935 ] },
+            $maxDistance: 500
+          }
+       }
+   }
+)
+
+Réponse:
+
+/*1*/
+{ 
+    "_id" : ObjectId("6006a729431538020287ca9d"), 
+    "type" : "Feature", 
+    "properties" : { 
+        "number" : 10006, 
+        "name" : "Charpennes", 
+        "address" : "Place Charles Hernu", 
+        "address2" : "", 
+        "commune" : "VILLEURBANNE", 
+        "nmarrond" : 6, 
+        "bonus" : "Non", 
+        "pole" : "métro A B, tram, centre quartier, itinéraire cyclable", 
+        "lat" : 45.7702267691494, 
+        "lng" : 4.86313272236022, 
+        "bike_stands" : 35, 
+        "status" : "OPEN", 
+        "available_bike_stands" : 8, 
+        "available_bikes" : 24, 
+        "availabilitycode" : 1, 
+        "availability" : "Vert", 
+        "banking" : 0, 
+        "gid" : 927, 
+        "last_update" : "2017/02/02 14:51:14", 
+        "last_update_fme" : "2017/02/02 14:54:00" 
+    }, 
+    "geometry" : { 
+        "type" : "Point", 
+        "coordinates" : [ 4.863132722360224, 45.77022676914935 ] 
+    }
+}
+
+/*2*/
+{ 
+    "_id" : ObjectId("6006a729431538020287cb3b"), 
+    "type" : "Feature", 
+    "properties" : { 
+        "number" : 10111, 
+        "name" : "Charles Hernu / Vitton", 
+        "address" : "95, Cours Vitton", 
+        "address2" : "", 
+        "commune" : "VILLEURBANNE", 
+        "nmarrond" : 111, 
+        "bonus" : "Non", 
+        "pole" : "Métro, Tram", 
+        "lat" : 45.7703330438207, 
+        "lng" : 4.86225781965823, 
+        "bike_stands" : 16, 
+        "status" : "OPEN", 
+        "available_bike_stands" : 4, 
+        "available_bikes" : 12, 
+        "availabilitycode" : 1, 
+        "availability" : "Vert", 
+        "banking" : 0, 
+        "gid" : 965, 
+        "last_update" : "2017/02/02 14:52:45", 
+        "last_update_fme" : "2017/02/02 14:54:00" 
+    }, 
+    "geometry" : { 
+        "type" : "Point", 
+        "coordinates" : [ 4.862257819658227, 45.770333043820656 ] 
+    }
+}
 
 ************************************************************************
 17.	Listez les 5 stations les plus proches des coordonnées type : "Point",  coordinates: [ 4.863132722360224, 45.77022676914935 ] } (utilisez : geoNear)
