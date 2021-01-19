@@ -654,6 +654,198 @@ Réponse:
 ************************************************************************
 17.	Listez les 5 stations les plus proches des coordonnées type : "Point",  coordinates: [ 4.863132722360224, 45.77022676914935 ] } (utilisez : geoNear)
 
+db.velov_geo.aggregate([
+    { "$geoNear": {
+        "near": [ 4.863132722360224, 45.77022676914935 ],
+        "spherical": true,
+        "distanceField": "distance",
+    }},
+    { "$sort": { "distance": 1} },
+    { "$limit": 5 }
+])
+
+Réponse:
+
+/* 1 */
+{
+    "_id" : ObjectId("60067c1c8f3ce63d03c10c2e"),
+    "type" : "Feature",
+    "properties" : {
+        "number" : 10006,
+        "name" : "Charpennes",
+        "address" : "Place Charles Hernu",
+        "address2" : "",
+        "commune" : "VILLEURBANNE",
+        "nmarrond" : 6,
+        "bonus" : "Non",
+        "pole" : "métro A B, tram, centre quartier, itinéraire cyclable",
+        "lat" : 45.7702267691494,
+        "lng" : 4.86313272236022,
+        "bike_stands" : 35,
+        "status" : "OPEN",
+        "available_bike_stands" : 8,
+        "available_bikes" : 24,
+        "availabilitycode" : 1,
+        "availability" : "Vert",
+        "banking" : 0,
+        "gid" : 927,
+        "last_update" : "2017/02/02 14:51:14",
+        "last_update_fme" : "2017/02/02 14:54:00"
+    },
+    "geometry" : {
+        "type" : "Point",
+        "coordinates" : [ 
+            4.86313272236022, 
+            45.7702267691494
+        ]
+    },
+    "distance" : 0.0
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("60067c1c8f3ce63d03c10cc9"),
+    "type" : "Feature",
+    "properties" : {
+        "number" : 10111,
+        "name" : "Charles Hernu / Vitton",
+        "address" : "95, Cours Vitton",
+        "address2" : "",
+        "commune" : "VILLEURBANNE",
+        "nmarrond" : 111,
+        "bonus" : "Non",
+        "pole" : "Métro, Tram",
+        "lat" : 45.7703330438207,
+        "lng" : 4.86225781965823,
+        "bike_stands" : 16,
+        "status" : "OPEN",
+        "available_bike_stands" : 4,
+        "available_bikes" : 12,
+        "availabilitycode" : 1,
+        "availability" : "Vert",
+        "banking" : 0,
+        "gid" : 965,
+        "last_update" : "2017/02/02 14:52:45",
+        "last_update_fme" : "2017/02/02 14:54:00"
+    },
+    "geometry" : {
+        "type" : "Point",
+        "coordinates" : [ 
+            4.86225781965823, 
+            45.7703330438207
+        ]
+    },
+    "distance" : 1.08116378618849e-05
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("60067c1c8f3ce63d03c10ce6"),
+    "type" : "Feature",
+    "properties" : {
+        "number" : 10075,
+        "name" : "Charmettes / Péri / Philip",
+        "address" : "Rue Gabriel Péri",
+        "address2" : "Angle cours André Philip",
+        "commune" : "VILLEURBANNE",
+        "nmarrond" : 75,
+        "bonus" : "Non",
+        "pole" : "",
+        "lat" : 45.7722995938508,
+        "lng" : 4.86569926844606,
+        "bike_stands" : 12,
+        "status" : "OPEN",
+        "available_bike_stands" : 8,
+        "available_bikes" : 4,
+        "availabilitycode" : 1,
+        "availability" : "Vert",
+        "banking" : 0,
+        "gid" : 833,
+        "last_update" : "2017/02/02 14:46:31",
+        "last_update_fme" : "2017/02/02 14:54:00"
+    },
+    "geometry" : {
+        "type" : "Point",
+        "coordinates" : [ 
+            4.86569926844606, 
+            45.7722995938508
+        ]
+    },
+    "distance" : 4.78026599515247e-05
+}
+
+/* 4 */
+{
+    "_id" : ObjectId("60067c1c8f3ce63d03c10c42"),
+    "type" : "Feature",
+    "properties" : {
+        "number" : 10046,
+        "name" : "Charmettes / Zola",
+        "address" : "Rue des Charmettes",
+        "address2" : "Angle cours Emile Zola",
+        "commune" : "VILLEURBANNE",
+        "nmarrond" : 46,
+        "bonus" : "Non",
+        "pole" : "maillage, arrêt C3 ?",
+        "lat" : 45.7707467009802,
+        "lng" : 4.86715309709659,
+        "bike_stands" : 24,
+        "status" : "OPEN",
+        "available_bike_stands" : 21,
+        "available_bikes" : 2,
+        "availabilitycode" : 1,
+        "availability" : "Vert",
+        "banking" : 0,
+        "gid" : 887,
+        "last_update" : "2017/02/02 14:47:22",
+        "last_update_fme" : "2017/02/02 14:54:00"
+    },
+    "geometry" : {
+        "type" : "Point",
+        "coordinates" : [ 
+            4.86715309709659, 
+            45.7707467009802
+        ]
+    },
+    "distance" : 4.97792375625362e-05
+}
+
+/* 5 */
+{
+    "_id" : ObjectId("60067c1c8f3ce63d03c10d62"),
+    "type" : "Feature",
+    "properties" : {
+        "number" : 6008,
+        "name" : "Brotteaux",
+        "address" : "17 place Jules Ferry",
+        "address2" : "",
+        "commune" : "Lyon 6 ème",
+        "nmarrond" : 8,
+        "bonus" : "Non",
+        "pole" : "Métro, parking, place, restaurants",
+        "lat" : 45.7684122613765,
+        "lng" : 4.85907055673834,
+        "bike_stands" : 20,
+        "status" : "OPEN",
+        "available_bike_stands" : 1,
+        "available_bikes" : 19,
+        "availabilitycode" : 1,
+        "availability" : "Vert",
+        "banking" : 0,
+        "gid" : 938,
+        "last_update" : "2017/02/02 14:51:30",
+        "last_update_fme" : "2017/02/02 14:54:00"
+    },
+    "geometry" : {
+        "type" : "Point",
+        "coordinates" : [ 
+            4.85907055673834, 
+            45.7684122613765
+        ]
+    },
+    "distance" : 5.87258446332734e-05
+}
+
 ************************************************************************
 18.	Cherchez les stations dont le pole répond à la requête « quartiers »
 db.velov_geo.find( { $text: { $search: "quartiers" } } );
