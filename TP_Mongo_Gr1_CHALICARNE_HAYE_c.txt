@@ -307,12 +307,68 @@ Réponse:
 
 ************************************************************************
 10.	Afficher les communes et le nombre de stations Vélo’V par commune
+db.velov_geo.aggregate([
+    {$group:{_id:"$properties.commune",count:{$sum:1}}}
+]);
+
+Réponse:
+{ "_id" : "Lyon 2 ème", "count" : 32 }
+{ "_id" : "CALUIRE-ET-CUIRE", "count" : 3 }
+{ "_id" : "VILLEURBANNE", "count" : 73 }
+{ "_id" : "Lyon 5 ème", "count" : 24 }
+{ "_id" : "VENISSIEUX", "count" : 1 }
+{ "_id" : "Lyon 3 ème", "count" : 50 }
+{ "_id" : "Lyon 1 er", "count" : 18 }
+{ "_id" : "VAULX-EN-VELIN", "count" : 2 }
+{ "_id" : "Lyon 9 ème", "count" : 24 }
+{ "_id" : "Lyon 4 ème", "count" : 20 }
+{ "_id" : "Lyon 8 ème", "count" : 34 }
+{ "_id" : "Lyon 6 ème", "count" : 28 }
+{ "_id" : "Lyon 7 ème", "count" : 40 }
 
 ************************************************************************
 11.	Triez par commune
+db.velov_geo.aggregate([
+    {$group:{_id:"$properties.commune",count:{$sum:1}}},
+    {$sort:{"_id":1}}
+]);
+
+Réponse:
+{ "_id" : "CALUIRE-ET-CUIRE", "count" : 3 }
+{ "_id" : "Lyon 1 er", "count" : 18 }
+{ "_id" : "Lyon 2 ème", "count" : 32 }
+{ "_id" : "Lyon 3 ème", "count" : 50 }
+{ "_id" : "Lyon 4 ème", "count" : 20 }
+{ "_id" : "Lyon 5 ème", "count" : 24 }
+{ "_id" : "Lyon 6 ème", "count" : 28 }
+{ "_id" : "Lyon 7 ème", "count" : 40 }
+{ "_id" : "Lyon 8 ème", "count" : 34 }
+{ "_id" : "Lyon 9 ème", "count" : 24 }
+{ "_id" : "VAULX-EN-VELIN", "count" : 2 }
+{ "_id" : "VENISSIEUX", "count" : 1 }
+{ "_id" : "VILLEURBANNE", "count" : 73 }
 
 ************************************************************************
 12.	Triez par nb de stations en ordre décroissante
+db.velov_geo.aggregate([
+    {$group:{_id:"$properties.commune",count:{$sum:1}}},
+    {$sort:{"count":-1}}
+]);
+
+Réponse:
+{ "_id" : "VILLEURBANNE", "count" : 73 }
+{ "_id" : "Lyon 3 ème", "count" : 50 }
+{ "_id" : "Lyon 7 ème", "count" : 40 }
+{ "_id" : "Lyon 8 ème", "count" : 34 }
+{ "_id" : "Lyon 2 ème", "count" : 32 }
+{ "_id" : "Lyon 6 ème", "count" : 28 }
+{ "_id" : "Lyon 9 ème", "count" : 24 }
+{ "_id" : "Lyon 5 ème", "count" : 24 }
+{ "_id" : "Lyon 4 ème", "count" : 20 }
+{ "_id" : "Lyon 1 er", "count" : 18 }
+{ "_id" : "CALUIRE-ET-CUIRE", "count" : 3 }
+{ "_id" : "VAULX-EN-VELIN", "count" : 2 }
+{ "_id" : "VENISSIEUX", "count" : 1 }
 
 ************************************************************************
 13.	Nombre de stations Vélo’V de Villeurbanne groupés par nombre de vélos disponibles triés selon ce nombre
