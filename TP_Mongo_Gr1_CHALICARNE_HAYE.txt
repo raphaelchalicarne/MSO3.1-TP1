@@ -156,6 +156,71 @@ Réponse:
 
 ************************************************************************
 5.	Lister les stations avec plus de 2 vélos disponibles (available_bikes)
+db.velov_geo.find({"properties.available_bikes":{$gte:2}});
+
+Réponse :
+/*1*/
+{ 
+    "_id" : ObjectId("6006a729431538020287ca9a"), 
+    "type" : "Feature", 
+    "properties" : { 
+        "number" : 6035, 
+        "name" : "Cité Int. / Palais des Congrès", 
+        "address" : "Quai Charles de Gaulle", 
+        "address2" : "Face parvis palais des congrés", 
+        "commune" : "Lyon 6 ème", 
+        "nmarrond" : 35, "bonus" : 
+        "Non", "pole" : "Cinéma, casino, palais des congrés", 
+        "lat" : 45.7854214249624, 
+        "lng" : 4.85412407271076, 
+        "bike_stands" : 21, 
+        "status" : "OPEN", 
+        "available_bike_stands" : 11, 
+        "available_bikes" : 10, 
+        "availabilitycode" : 1, 
+        "availability" : "Vert", 
+        "banking" : 0, 
+        "gid" : 1082, 
+        "last_update" : "2017/02/02 14:53:07", 
+        "last_update_fme" : "2017/02/02 14:54:00" 
+    }, 
+    "geometry" : { 
+        "type" : "Point", 
+        "coordinates" : [ 4.854124072710764, 45.78542142496238 ] 
+    }
+}
+
+/*2*/
+{ 
+    "_id" : ObjectId("6006a729431538020287ca9b"), 
+    "type" : "Feature", 
+    "properties" : { 
+        "number" : 2012, 
+        "name" : "Gailleton", 
+        "address" : "4 place Gailleton", 
+        "address2" : "", "commune" : 
+        "Lyon 2 ème", 
+        "nmarrond" : 12, 
+        "bonus" : "Non", 
+        "pole" : "", 
+        "lat" : 45.7534549142114, 
+        "lng" : 4.83335384395724, 
+        "bike_stands" : 16, 
+        "status" : "OPEN", 
+        "available_bike_stands" : 8, 
+        "available_bikes" : 7, 
+        "availabilitycode" : 1, 
+        "availability" : "Vert", 
+        "banking" : 0, 
+        "gid" : 771, 
+        "last_update" : "2017/02/02 14:51:07", 
+        "last_update_fme" : "2017/02/02 14:54:00" 
+    }, 
+    "geometry" : { 
+        "type" : "Point", 
+        "coordinates" : [ 4.833353843957238, 45.75345491421144 ]
+    } 
+}
 
 ************************************************************************
 6.	Lister toutes les communes distinctes
