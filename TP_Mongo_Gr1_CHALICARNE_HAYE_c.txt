@@ -550,6 +550,101 @@ Réponse
 ************************************************************************
 14.	Rajouter au résultat précédent, les noms des stations pour chaque nombre de vélos disponible
 
+db.velov_geo.aggregate([
+    {$match:{"properties.commune":"VILLEURBANNE"}},
+    {$group:{
+        "_id":"$properties.available_bikes",
+        "nombre" : {$sum : 1}, 
+        "nom station": { $push: "$properties.name"}
+        }
+    },
+    {$sort:{"_id":1}}    
+    ])
+    
+Réponse:
+
+/* 1 */
+{
+    "_id" : 0,
+    "nombre" : 13.0,
+    "nom station" : [ 
+        "Place de la Reconnaissance", 
+        "Nouveau Musée D'Art Contemporain", 
+        "Mémoire & Société", 
+        "Château Gaillard / Filature", 
+        "Gare Laurent Bonnevay", 
+        "Cusset / Voyant", 
+        "Parc du Centre", 
+        "Boiron Grangé", 
+        "Lycée Marie Curie", 
+        "Pressensé / Bienvenus", 
+        "Saint Exupéry", 
+        "GrandClément", 
+        "Rollet / 4 août 1789 / Blanqui"
+    ]
+}
+
+/* 2 */
+{
+    "_id" : 1,
+    "nombre" : 4.0,
+    "nom station" : [ 
+        "Maisons Neuves", 
+        "Salengro / Vaillant", 
+        "Préssensé / 8 mai 1945", 
+        "Tolstoï / Verlaine"
+    ]
+}
+
+/* 3 */
+{
+    "_id" : 2,
+    "nombre" : 8.0,
+    "nom station" : [ 
+        "Charmettes / Zola", 
+        "MJC", 
+        "Saint Jean", 
+        "Zola / Passage Rey", 
+        "La Pérralière", 
+        "Condorcet / Piaton", 
+        "Perrin/Jean Jaurès", 
+        "Croix Luizet"
+    ]
+}
+
+/* 4 */
+{
+    "_id" : 3,
+    "nombre" : 3.0,
+    "nom station" : [ 
+        "Salengro / 8 mai 1945", 
+        "Tonkin / Allende", 
+        "Anatole France / Lherminier"
+    ]
+}
+
+/* 5 */
+{
+    "_id" : 4,
+    "nombre" : 3.0,
+    "nom station" : [ 
+        "Totem", 
+        "Mairie de Villeurbanne", 
+        "Charmettes / Péri / Philip"
+    ]
+}
+
+/* 6 */
+{
+    "_id" : 5,
+    "nombre" : 3.0,
+    "nom station" : [ 
+        "Gratte-Ciel / Branly", 
+        "4 août 1789 / Zola", 
+        "Gare de Villeurbanne"
+    ]
+}
+
 ************************************************************************
 15.	Calculer le nombre moyen de vélos disponibles par commune
 db.velov_geo.aggregate([
