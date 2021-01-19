@@ -86,6 +86,70 @@ Réponse:
 
 ************************************************************************
 3.	Liste des stations qui n’ont pas de seconde adresse (adress2 vide)
+db.velov_geo.find({"properties.address2":""});
+
+Réponse:
+/*1*/
+{
+    "_id" : ObjectId("6006a729431538020287ca9b"),
+    "type" : "Feature",
+    "properties" : { 
+        "number" : 2012, 
+        "name" : "Gailleton", 
+        "address" : "4 place Gailleton", 
+        "address2" : "", 
+        "commune" : "Lyon 2 ème", 
+        "nmarrond" : 12, "bonus" : 
+        "Non", "pole" : "", 
+        "lat" : 45.7534549142114, 
+        "lng" : 4.83335384395724, 
+        "bike_stands" : 16, 
+        "status" : "OPEN", 
+        "available_bike_stands" : 8, 
+        "available_bikes" : 7, 
+        "availabilitycode" : 1, 
+        "availability" : "Vert", 
+        "banking" : 0, 
+        "gid" : 771, 
+        "last_update" : "2017/02/02 14:51:07", 
+        "last_update_fme" : "2017/02/02 14:54:00" 
+    }, 
+    "geometry" : { 
+        "type" : "Point", 
+        "coordinates" : [ 4.833353843957238, 45.75345491421144 ] 
+    }
+}
+
+/*2*/
+{ 
+    "_id" : ObjectId("6006a729431538020287ca9c"), 
+    "type" : "Feature", 
+    "properties" : { 
+        "number" : 4023, 
+        "name" : "Pont Masaryk", 
+        "address" : "Face 45, Quai Joseph Gillet", 
+        "address2" : "", 
+        "commune" : "Lyon 4 ème", 
+        "nmarrond" : 23, "bonus" : 
+        "Non", "pole" : "", 
+        "lat" : 45.7781720674197, 
+        "lng" : 4.81069860664111, 
+        "bike_stands" : 22, 
+        "status" : "OPEN", 
+        "available_bike_stands" : 2, 
+        "available_bikes" : 20, 
+        "availabilitycode" : 1, 
+        "availability" : "Vert", 
+        "banking" : 0, 
+        "gid" : 953, 
+        "last_update" : "2017/02/02 14:44:40", 
+        "last_update_fme" : "2017/02/02 14:54:00" 
+    }, 
+    "geometry" : { 
+        "type" : "Point", 
+        "coordinates" : [ 4.810698606641112, 45.77817206741968 ]
+    }
+}
 
 ************************************************************************
 4.	Nombre de stations dont la seconde adresse a une valeur
