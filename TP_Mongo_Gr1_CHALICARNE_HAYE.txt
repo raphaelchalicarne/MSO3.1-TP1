@@ -128,6 +128,27 @@ Réponse:
 ************************************************************************
 6.	Lister toutes les communes distinctes
 
+db.velov_geo.distinct("properties.commune");
+
+Réponse: 
+
+/* 1 */
+[
+    "CALUIRE-ET-CUIRE",
+    "Lyon 1 er",
+    "Lyon 2 ème",
+    "Lyon 3 ème",
+    "Lyon 4 ème",
+    "Lyon 5 ème",
+    "Lyon 6 ème",
+    "Lyon 7 ème",
+    "Lyon 8 ème",
+    "Lyon 9 ème",
+    "VAULX-EN-VELIN",
+    "VENISSIEUX",
+    "VILLEURBANNE"
+]
+
 ************************************************************************
 7.	Lister toutes les communes distinctes, trier les résultats par ordre alphabétique
 
