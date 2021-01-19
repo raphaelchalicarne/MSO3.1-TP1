@@ -302,8 +302,113 @@ Réponse:
 ************************************************************************
 8.	Lister les stations du 9ème arrondissement (Lyon 9 ème) par ordre croissant de vélos disponibles
 
+db.velov_geo.find({"properties.commune":"Lyon 9 ème"}).sort({"properties.available_bikes":1});
+
+/* 1 */
+{
+    "_id" : ObjectId("60067c1c8f3ce63d03c10ca6"),
+    "type" : "Feature",
+    "properties" : {
+        "number" : 9050,
+        "name" : "Le Château",
+        "address" : "228 avenue du Plateau",
+        "address2" : "",
+        "commune" : "Lyon 9 ème",
+        "nmarrond" : 50,
+        "bonus" : "Oui",
+        "pole" : "Commerces, poste, mairie, cpam, marché",
+        "lat" : 45.7836371650548,
+        "lng" : 4.79452530849956,
+        "bike_stands" : 12,
+        "status" : "OPEN",
+        "available_bike_stands" : 12,
+        "available_bikes" : 0,
+        "availabilitycode" : 3,
+        "availability" : "Orange",
+        "banking" : 0,
+        "gid" : 1016,
+        "last_update" : "2017/02/02 14:51:55",
+        "last_update_fme" : "2017/02/02 14:54:00"
+    },
+    "geometry" : {
+        "type" : "Point",
+        "coordinates" : [ 
+            4.79452530849956, 
+            45.7836371650548
+        ]
+    }
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("60067c1c8f3ce63d03c10cff"),
+    "type" : "Feature",
+    "properties" : {
+        "number" : 9051,
+        "name" : "Andréi Sakharov",
+        "address" : "301 avenue A.Sakharov",
+        "address2" : "",
+        "commune" : "Lyon 9 ème",
+        "nmarrond" : 51,
+        "bonus" : "Oui",
+        "pole" : "Stade, lycée",
+        "lat" : 45.7865247393491,
+        "lng" : 4.79707090233101,
+        "bike_stands" : 24,
+        "status" : "OPEN",
+        "available_bike_stands" : 12,
+        "available_bikes" : 0,
+        "availabilitycode" : 3,
+        "availability" : "Orange",
+        "banking" : 0,
+        "gid" : 989,
+        "last_update" : "2017/02/02 14:47:17",
+        "last_update_fme" : "2017/02/02 14:54:00"
+    },
+    "geometry" : {
+        "type" : "Point",
+        "coordinates" : [ 
+            4.79707090233101, 
+            45.7865247393491
+        ]
+    }
+}
 ************************************************************************
 9.	Projeter les résultats sur le nom, l’adresse et le nombre de vélos disponibles
+
+db.velov_geo.find({"properties.commune":"Lyon 9 ème"}, {"properties.name":1, "properties.address":1, "properties.available_bikes":1}).sort({"properties.available_bikes":1});
+
+
+/* 1 */
+{
+    "_id" : ObjectId("60067c1c8f3ce63d03c10ca6"),
+    "properties" : {
+        "name" : "Le Château",
+        "address" : "228 avenue du Plateau",
+        "available_bikes" : 0
+    }
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("60067c1c8f3ce63d03c10cff"),
+    "properties" : {
+        "name" : "Andréi Sakharov",
+        "address" : "301 avenue A.Sakharov",
+        "available_bikes" : 0
+    }
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("60067c1c8f3ce63d03c10d49"),
+    "properties" : {
+        "name" : "Balmont",
+        "address" : "332 bd de Balmont",
+        "available_bikes" : 0
+    }
+}
+
 
 ************************************************************************
 10.	Afficher les communes et le nombre de stations Vélo’V par commune
