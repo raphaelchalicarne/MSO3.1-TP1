@@ -483,6 +483,24 @@ Réponse:
 
 ************************************************************************
 15.	Calculer le nombre moyen de vélos disponibles par commune
+db.velov_geo.aggregate([
+    {$group:{_id:"$properties.commune", moyenne:{$avg:"$properties.available_bikes"}}}
+]);
+
+Réponse:
+{ "_id" : "Lyon 2 ème", "moyenne" : 13.25 }
+{ "_id" : "CALUIRE-ET-CUIRE", "moyenne" : 11 }
+{ "_id" : "Lyon 6 ème", "moyenne" : 11 }
+{ "_id" : "Lyon 7 ème", "moyenne" : 12.975 }
+{ "_id" : "Lyon 4 ème", "moyenne" : 6.05 }
+{ "_id" : "Lyon 8 ème", "moyenne" : 6.764705882352941 }
+{ "_id" : "Lyon 9 ème", "moyenne" : 9.583333333333334 }
+{ "_id" : "Lyon 5 ème", "moyenne" : 8.083333333333334 }
+{ "_id" : "VAULX-EN-VELIN", "moyenne" : 11.5 }
+{ "_id" : "Lyon 1 er", "moyenne" : 5.333333333333333 }
+{ "_id" : "Lyon 3 ème", "moyenne" : 11.16 }
+{ "_id" : "VENISSIEUX", "moyenne" : 5 }
+{ "_id" : "VILLEURBANNE", "moyenne" : 7.657534246575342 }
 
 ************************************************************************
 16.	Chercher les stations Vélo’V qui sont à moins de 500m du point : $geometry: { type: "Point",  coordinates: [ 4.863132722360224, 45.77022676914935 ] } (utilisez : $near)
