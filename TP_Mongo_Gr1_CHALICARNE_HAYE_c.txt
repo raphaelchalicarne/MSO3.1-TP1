@@ -1,0 +1,294 @@
+CHALICARNE Raphaël 
+HAYE Laetitia
+
+
+************************************************************************
+1.	Liste de toutes les stations dont la commune est VILLEURBANNE
+
+db.velov_geo.find({"properties.commune":"VILLEURBANNE"});
+
+Réponse:
+
+/* 1 */
+{
+    "_id" : ObjectId("5ffb675e3aa6507fa7c9aa6d"),
+    "type" : "Feature",
+    "properties" : {
+        "number" : 10043,
+        "name" : "Salengro / 8 mai 1945",
+        "address" : "Face 44, Rue de la Feyssine",
+        "address2" : "",
+        "commune" : "VILLEURBANNE",
+        "nmarrond" : 43,
+        "bonus" : "Non",
+        "pole" : "itinéraires cyclables",
+        "lat" : 45.7830110745979,
+        "lng" : 4.8905858366251,
+        "bike_stands" : 20,
+        "status" : "OPEN",
+        "available_bike_stands" : 17,
+        "available_bikes" : 3,
+        "availabilitycode" : 1,
+        "availability" : "Vert",
+        "banking" : 0,
+        "gid" : 826,
+        "last_update" : "2017/02/02 14:52:42",
+        "last_update_fme" : "2017/02/02 14:54:00"
+    },
+    "geometry" : {
+        "type" : "Point",
+        "coordinates" : [ 
+            4.8905858366251, 
+            45.7830110745979
+        ]
+    }
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("5ffb675e3aa6507fa7c9aa6e"),
+    "type" : "Feature",
+    "properties" : {
+        "number" : 10112,
+        "name" : "Place de la Reconnaissance",
+        "address" : "109 route de Genas",
+        "address2" : "",
+        "commune" : "VILLEURBANNE",
+        "nmarrond" : 112,
+        "bonus" : "Non",
+        "pole" : "MJC, espace public, maillage",
+        "lat" : 45.7545359906761,
+        "lng" : 4.88513867618816,
+        "bike_stands" : 32,
+        "status" : "OPEN",
+        "available_bike_stands" : 32,
+        "available_bikes" : 0,
+        "availabilitycode" : 3,
+        "availability" : "Orange",
+        "banking" : 0,
+        "gid" : 972,
+        "last_update" : "2017/02/02 14:49:57",
+        "last_update_fme" : "2017/02/02 14:54:00"
+    },
+    "geometry" : {
+        "type" : "Point",
+        "coordinates" : [ 
+            4.88513867618816, 
+            45.7545359906761
+        ]
+    }
+}
+...
+
+
+************************************************************************
+2.	Lister toutes les stations qui ne sont pas à VILLEURBANNE
+projeté sur communes
+
+db.velov_geo.find({"properties.commune": {$ne: "VILLEURBANNE"}}, {"properties.commune":1});
+
+Réponse:
+
+/* 1 */
+{
+    "_id" : ObjectId("60067c1c8f3ce63d03c10c2a"),
+    "properties" : {
+        "commune" : "Lyon 7 ème"
+    }
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("60067c1c8f3ce63d03c10c2b"),
+    "properties" : {
+        "commune" : "Lyon 9 ème"
+    }
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("60067c1c8f3ce63d03c10c2c"),
+    "properties" : {
+        "commune" : "Lyon 6 ème"
+    }
+}
+
+************************************************************************
+3.	Liste des stations qui n’ont pas de seconde adresse (adress2 vide)
+db.velov_geo.find({"properties.address2":""});
+
+Réponse:
+/*1*/
+{
+    "_id" : ObjectId("6006a729431538020287ca9b"),
+    "type" : "Feature",
+    "properties" : { 
+        "number" : 2012, 
+        "name" : "Gailleton", 
+        "address" : "4 place Gailleton", 
+        "address2" : "", 
+        "commune" : "Lyon 2 ème", 
+        "nmarrond" : 12, "bonus" : 
+        "Non", "pole" : "", 
+        "lat" : 45.7534549142114, 
+        "lng" : 4.83335384395724, 
+        "bike_stands" : 16, 
+        "status" : "OPEN", 
+        "available_bike_stands" : 8, 
+        "available_bikes" : 7, 
+        "availabilitycode" : 1, 
+        "availability" : "Vert", 
+        "banking" : 0, 
+        "gid" : 771, 
+        "last_update" : "2017/02/02 14:51:07", 
+        "last_update_fme" : "2017/02/02 14:54:00" 
+    }, 
+    "geometry" : { 
+        "type" : "Point", 
+        "coordinates" : [ 4.833353843957238, 45.75345491421144 ] 
+    }
+}
+
+/*2*/
+{ 
+    "_id" : ObjectId("6006a729431538020287ca9c"), 
+    "type" : "Feature", 
+    "properties" : { 
+        "number" : 4023, 
+        "name" : "Pont Masaryk", 
+        "address" : "Face 45, Quai Joseph Gillet", 
+        "address2" : "", 
+        "commune" : "Lyon 4 ème", 
+        "nmarrond" : 23, "bonus" : 
+        "Non", "pole" : "", 
+        "lat" : 45.7781720674197, 
+        "lng" : 4.81069860664111, 
+        "bike_stands" : 22, 
+        "status" : "OPEN", 
+        "available_bike_stands" : 2, 
+        "available_bikes" : 20, 
+        "availabilitycode" : 1, 
+        "availability" : "Vert", 
+        "banking" : 0, 
+        "gid" : 953, 
+        "last_update" : "2017/02/02 14:44:40", 
+        "last_update_fme" : "2017/02/02 14:54:00" 
+    }, 
+    "geometry" : { 
+        "type" : "Point", 
+        "coordinates" : [ 4.810698606641112, 45.77817206741968 ]
+    }
+}
+
+************************************************************************
+4.	Nombre de stations dont la seconde adresse a une valeur
+
+************************************************************************
+5.	Lister les stations avec plus de 2 vélos disponibles (available_bikes)
+db.velov_geo.find({"properties.available_bikes":{$gte:2}});
+
+Réponse :
+/*1*/
+{ 
+    "_id" : ObjectId("6006a729431538020287ca9a"), 
+    "type" : "Feature", 
+    "properties" : { 
+        "number" : 6035, 
+        "name" : "Cité Int. / Palais des Congrès", 
+        "address" : "Quai Charles de Gaulle", 
+        "address2" : "Face parvis palais des congrés", 
+        "commune" : "Lyon 6 ème", 
+        "nmarrond" : 35, "bonus" : 
+        "Non", "pole" : "Cinéma, casino, palais des congrés", 
+        "lat" : 45.7854214249624, 
+        "lng" : 4.85412407271076, 
+        "bike_stands" : 21, 
+        "status" : "OPEN", 
+        "available_bike_stands" : 11, 
+        "available_bikes" : 10, 
+        "availabilitycode" : 1, 
+        "availability" : "Vert", 
+        "banking" : 0, 
+        "gid" : 1082, 
+        "last_update" : "2017/02/02 14:53:07", 
+        "last_update_fme" : "2017/02/02 14:54:00" 
+    }, 
+    "geometry" : { 
+        "type" : "Point", 
+        "coordinates" : [ 4.854124072710764, 45.78542142496238 ] 
+    }
+}
+
+/*2*/
+{ 
+    "_id" : ObjectId("6006a729431538020287ca9b"), 
+    "type" : "Feature", 
+    "properties" : { 
+        "number" : 2012, 
+        "name" : "Gailleton", 
+        "address" : "4 place Gailleton", 
+        "address2" : "", "commune" : 
+        "Lyon 2 ème", 
+        "nmarrond" : 12, 
+        "bonus" : "Non", 
+        "pole" : "", 
+        "lat" : 45.7534549142114, 
+        "lng" : 4.83335384395724, 
+        "bike_stands" : 16, 
+        "status" : "OPEN", 
+        "available_bike_stands" : 8, 
+        "available_bikes" : 7, 
+        "availabilitycode" : 1, 
+        "availability" : "Vert", 
+        "banking" : 0, 
+        "gid" : 771, 
+        "last_update" : "2017/02/02 14:51:07", 
+        "last_update_fme" : "2017/02/02 14:54:00" 
+    }, 
+    "geometry" : { 
+        "type" : "Point", 
+        "coordinates" : [ 4.833353843957238, 45.75345491421144 ]
+    } 
+}
+
+************************************************************************
+6.	Lister toutes les communes distinctes
+
+************************************************************************
+7.	Lister toutes les communes distinctes, trier les résultats par ordre alphabétique
+
+************************************************************************
+8.	Lister les stations du 9ème arrondissement (Lyon 9 ème) par ordre croissant de vélos disponibles
+
+************************************************************************
+9.	Projeter les résultats sur le nom, l’adresse et le nombre de vélos disponibles
+
+************************************************************************
+10.	Afficher les communes et le nombre de stations Vélo’V par commune
+
+************************************************************************
+11.	Triez par commune
+
+************************************************************************
+12.	Triez par nb de stations en ordre décroissante
+
+************************************************************************
+13.	Nombre de stations Vélo’V de Villeurbanne groupés par nombre de vélos disponibles triés selon ce nombre
+
+************************************************************************
+14.	Rajouter au résultat précédent, les noms des stations pour chaque nombre de vélos disponible
+
+************************************************************************
+15.	Calculer le nombre moyen de vélos disponibles par commune
+
+************************************************************************
+16.	Chercher les stations Vélo’V qui sont à moins de 500m du point : $geometry: { type: "Point",  coordinates: [ 4.863132722360224, 45.77022676914935 ] } (utilisez : $near)
+
+************************************************************************
+17.	Listez les 5 stations les plus proches des coordonnées type : "Point",  coordinates: [ 4.863132722360224, 45.77022676914935 ] } (utilisez : geoNear)
+
+************************************************************************
+18.	Cherchez les stations dont le pole répond à la requête « quartiers »
+
+
+
